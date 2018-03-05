@@ -35,7 +35,8 @@ exports.upload = function(response, request) {
     var prefix = iconv.encode(originFilename[0], 'utf-8');
     // var prefix = originFilename[0]
     var suffix = originFilename[1]
-    var filename = prefix + '_' + uuid.v1() + '.' + suffix
+    // var filename = prefix + '_' + uuid.v1() + '.' + suffix
+    var filename = uuid.v1() + '.' + suffix
 
     fs.renameSync(files.imageFile.path, './public/images/' + filename)
     response.writeHead(200, {"Content-Type":'text/json;charset=utf-8','Access-Control-Allow-Origin':'*','Access-Control-Allow-Methods':'PUT,POST,GET,DELETE,OPTIONS'})
